@@ -13,6 +13,9 @@ default: ~
 	curl -fsSL ${BREW_URL} | ruby
 	brew bundle --file=${PWD}/Brewfile
 
+/usr/local/bin/rwp:
+	cp ./rwp $@
+
 ~/.%: dots/.%
 	mkdir -p $(dir $@)
 	cp ${PWD}/$< $@
