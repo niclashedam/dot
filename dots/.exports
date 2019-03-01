@@ -1,0 +1,8 @@
+# Report terminal type
+export TERM="xterm-256color"
+
+# Composer (https://github.com/composer/composer)
+export PATH="$PATH:$HOME/.composer/vendor/bin"
+
+# Yarn (https://yarnpkg.com/)
+export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin"

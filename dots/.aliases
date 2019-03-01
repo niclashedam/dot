@@ -1,0 +1,48 @@
+# Be nice
+alias please="sudo"
+
+# Better safe than sorry
+alias rm="rm -i"
+
+# Detect which `ls` flavor is in use
+if ls --color > /dev/null 2>&1; then # GNU `ls`
+  colorflag="--color"
+else # OS X `ls`
+  colorflag="-G"
+fi
+
+# Always use color output for `ls`
+alias ls="command ls ${colorflag}"
+
+# Flush Directory Service cache
+alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+
+# Clean up LaunchServices to remove duplicates in the "Open With" menu
+alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user; killall Finder"
+
+# Recursively delete `.DS_Store` files
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+
+# Show/hide hidden files in Finder
+alias show="defaults write com.apple.finder AppleShowAllFiles -bool true; killall Finder"
+alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false; killall Finder"
+
+# Reload the shell (i.e. invoke as a login shell)
+alias reload="exec $SHELL -l"
+
+# Get a UNIX timestamp
+alias timestamp="date +%s"
+
+# Get week number
+alias week='date +%V'
+
+# IP addresses
+alias ip="curl ipinfo.io/ip"
+alias ipc="curl ipinfo.io/country"
+alias ipo="curl ipinfo.io/org"
+alias localip="ipconfig getifaddr en0"
+
+if type thefuck &> /dev/null; then
+  # load fuck
+  eval $(thefuck --alias)
+fi

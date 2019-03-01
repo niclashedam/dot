@@ -1,0 +1,49 @@
+[alias]
+  # Remove all branches that have been merged into master
+  cleanup = "!git checkout master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -D"
+
+  # Initialise a new git repository and copy some configs to it
+  bootstrap ="!git init && cp ~/.editorconfig ."
+
+  # Remove all branches, but master
+  nuke = "!git checkout master && git branch | grep -v '\\*' | xargs git branch -D && git fetch -p"
+
+[apply]
+  # Detect whitespace errors when applying a patch
+  whitespace = fix
+
+[core]
+  # Set default editor (for commit and merge messages)
+  editor = atom --wait
+
+  # Set global ignore file
+  excludesfile = ~/.gitignore
+
+  # Treat spaces before tabs, lines that are indented with 8 or more spaces, and
+  # all kinds of trailing whitespace as an error.
+  # [default] trailing-space: looks for spaces at the end of a line
+  # [default] space-before-tab: looks for spaces before tabs at the beginning of
+  # a line
+  whitespace = space-before-tab,indent-with-non-tab,trailing-space
+
+  # Make `git rebase` safer on OS X
+  # More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
+  trustctime = false
+
+  # Prevent showing files whose names contain non-ASCII symbols as unversioned.
+  # http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
+  precomposeunicode = false
+
+[user]
+  name = Niclas Hedam
+  email = niclas@hed.am
+
+[github]
+  name = Niclas Hedam
+  email = niclas@hed.am
+
+[push]
+  default = simple
+
+  # Make `git push` push relevant annotated tags when pushing branches out.
+  followTags = true
