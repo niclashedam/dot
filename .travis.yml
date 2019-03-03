@@ -4,4 +4,4 @@ script:
     - make -B ~
     - make -B ~ # test that running it twice won't break anything
     - travis_wait 60 brew bundle --global
-    - travis_wait 60 ~/.atom/packages
+    - travis_wait 60 make ~/.atom/packages
