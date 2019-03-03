@@ -27,4 +27,4 @@ default: ~
 	mkdir -p $(dir $@)
 	cp ${PWD}/$< $@
 
-~: /usr/local/bin/brew ${dotfiles} ${atom_files} ~/.atom/packages
+~: /usr/local/bin/brew ${dotfiles} ${atom_files}
