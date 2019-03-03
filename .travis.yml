@@ -1,5 +1,6 @@
 language: minimal
 os: osx
 script:
-    - travis_wait 60 make -B ~
-    - travis_wait 60 make -B ~ # test that running it twice won't break anything
+    - make -B ~
+    - make -B ~ # test that running it twice won't break anything
+    - travis_wait 60 brew bundle --global
