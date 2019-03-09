@@ -1,24 +1,23 @@
 #!/usr/bin/env python
 
-import imghdr
 import calendar
+import imghdr
 import json
 import os
 import requests
+import shutil
 import subprocess
-import urllib
-import urlparse
 import subprocess
 import time
+import urllib
+import urlparse
 
 wallpaper_path = "/tmp/wp-" + str(calendar.timegm(time.gmtime()))
 subreddit = "wallpaper"
 extensions = ["jpeg", "jpg", "png"]
 
 SCRIPT = """/usr/bin/osascript<<END
-tell application "Finder"
-set desktop picture to POSIX file "%s"
-end tell
+tell application "System Events" to tell every desktop to set picture to "%s"
 END"""
 
 def set_desktop_background(filename):
@@ -63,11 +62,11 @@ for post in posts:
         continue
 
     if width < 1920 or height < 1080:
-        print " --> Skipping due to resolution", width, height
+        print " --> Skipping due to resolution being ", width, height
         continue
 
     if aspect != 1.78:
-        print " --> Skipping due to aspect", aspect
+        print " --> Skipping due to aspect being ", aspect
         continue
 
 
@@ -77,7 +76,7 @@ for post in posts:
     try:
         extensions.index(ext)
     except Exception as e:
-        print " --> Skipping due to invalid format", ext
+        print " --> Skipping due to invalid format being ", ext
         continue
 
     urllib.urlretrieve(post["data"]["url"], wallpaper_path + ext)
@@ -86,10 +85,13 @@ for post in posts:
     try:
         extensions.index(image_ext)
     except Exception as e:
-        print " --> Skipping due to invalid image", image_ext
+        print " --> Skipping due to invalid image being ", image_ext
         continue
 
-    print " --> OK"
-    set_desktop_background(wallpaper_path + ext)
+    print " --> OK. Chaning wallpaper"
+
+    dotPath = os.path.expanduser("~/.wallpaper." + ext)
+    shutil.move(wallpaper_path + ext, dotPath)
+    set_desktop_background(dotPath)
 
     break

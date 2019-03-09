@@ -42,6 +42,9 @@ alias ipc="curl ipinfo.io/country"
 alias ipo="curl ipinfo.io/org"
 alias localip="ipconfig getifaddr en0"
 
+#Reddit wallpaper
+alias rwp="~/.rwp.sh"
+
 if type thefuck &> /dev/null; then
   # load fuck
   eval $(thefuck --alias)
