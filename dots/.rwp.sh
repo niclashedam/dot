@@ -62,11 +62,11 @@ for post in posts:
         continue
 
     if width < 1920 or height < 1080:
-        print " --> Skipping due to resolution being ", width, height
+        print " --> Skipping due to resolution being", width, height
         continue
 
     if aspect != 1.78:
-        print " --> Skipping due to aspect being ", aspect
+        print " --> Skipping due to aspect being", aspect
         continue
 
 
@@ -76,7 +76,7 @@ for post in posts:
     try:
         extensions.index(ext)
     except Exception as e:
-        print " --> Skipping due to invalid format being ", ext
+        print " --> Skipping due to invalid format being", ext
         continue
 
     urllib.urlretrieve(post["data"]["url"], wallpaper_path + ext)
@@ -85,10 +85,10 @@ for post in posts:
     try:
         extensions.index(image_ext)
     except Exception as e:
-        print " --> Skipping due to invalid image being ", image_ext
+        print " --> Skipping due to invalid image being", image_ext
         continue
 
-    print " --> OK. Chaning wallpaper"
+    print " --> OK. Changing wallpaper"
 
     dotPath = os.path.expanduser("~/.wallpaper." + ext)
     shutil.move(wallpaper_path + ext, dotPath)
