@@ -14,14 +14,11 @@ import urlparse
 
 wallpaper_path = "/tmp/wp-" + str(calendar.timegm(time.gmtime()))
 subreddit = "wallpaper"
-extensions = ["jpeg", "jpg", "png"]
-
-SCRIPT = """/usr/bin/osascript<<END
-tell application "System Events" to tell every desktop to set picture to "%s"
-END"""
+extensions = ["jpg", "jpeg", "png"]
 
 def set_desktop_background(filename):
-    subprocess.Popen(SCRIPT%filename, shell=True)
+    os.system("osascript -e 'tell application \"System Events\" to tell every desktop to set picture to \"" + filename + "\"'")
+    os.system("osascript -e 'tell application \"Finder\" to set desktop picture to POSIX file \"" + filename + "\"'")
 
 def getsizes(uri):
     # get file size *and* image size (None if not known)
@@ -90,8 +87,9 @@ for post in posts:
 
     print " --> OK. Changing wallpaper"
 
-    dotPath = os.path.expanduser("~/.wallpaper." + ext)
+    dotPath = os.path.expanduser("~/Wallpaper")
     shutil.move(wallpaper_path + ext, dotPath)
+    print " --> Path: " + dotPath
     set_desktop_background(dotPath)
 
     break
