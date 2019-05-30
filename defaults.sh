@@ -1,5 +1,8 @@
 ##!/usr/bin/env bash
 
+osascript -e 'tell application "System Preferences" to quit'
+sudo -v
+
 ###############################################################################
 # General UI/UX                                                               #
 ###############################################################################
@@ -100,11 +103,9 @@ defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerTapGesture -
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture -int 0
 
 # Enable tap to click
-defaults write com.apple.AppleMultitouchTrackpad Clicking -int 1
-
+defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
-defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults -currentHost write 'Apple Global Domain' com.apple.mouse.tapBehavior 1
 
 ###############################################################################
 # Finder                                                                      #
@@ -163,6 +164,7 @@ defaults write com.apple.dock show-process-indicators -bool true
 
 # Wipe all app icons from the Dock
 defaults write com.apple.dock persistent-apps -bool false
+defaults write com.apple.dock persistent-others -bool false
 
 # Disable Dashboard
 defaults write com.apple.dashboard mcx-disabled -bool true
@@ -178,6 +180,8 @@ defaults write com.apple.dock autohide -bool false
 
 # Reset LaunchPad at each login
 defaults write com.apple.dock ResetLaunchPad -bool true
+
+killall Dock
 
 ###############################################################################
 # Time Machine                                                                #
@@ -198,6 +202,10 @@ defaults write NSGlobalDomain AppleMetricUnits -bool true
 
 # Set the timezone; see `sudo systemsetup -listtimezones` for other values
 sudo systemsetup -settimezone "Europe/Copenhagen" > /dev/null
+
+# Show seconds in menu bar
+defaults write com.apple.menuextra.clock DateFormat -string "EEE HH:mm:ss"
+killall SystemUIServer
 
 ###############################################################################
 # Terminal & iTerm 2                                                          #
