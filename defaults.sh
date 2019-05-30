@@ -167,7 +167,7 @@ defaults write com.apple.dock persistent-apps -bool false
 defaults write com.apple.dock persistent-others -bool false
 
 # Do not show recents
-efaults write com.apple.dock show-recents -bool false
+defaults write com.apple.dock show-recents -bool false
 
 # Disable Dashboard
 defaults write com.apple.dashboard mcx-disabled -bool true
