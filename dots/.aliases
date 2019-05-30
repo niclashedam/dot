@@ -49,3 +49,6 @@ if type thefuck &> /dev/null; then
   # load fuck
   eval $(thefuck --alias)
 fi
+
+# Docker
+eval $(docker-machine env default)
