@@ -19,6 +19,7 @@ extensions = ["jpg", "jpeg", "png"]
 def set_desktop_background(filename):
     os.system("osascript -e 'tell application \"System Events\" to tell every desktop to set picture to \"" + filename + "\"'")
     os.system("osascript -e 'tell application \"Finder\" to set desktop picture to POSIX file \"" + filename + "\"'")
+    os.system("killall -9 Dock")
 
 def getsizes(uri):
     # get file size *and* image size (None if not known)
