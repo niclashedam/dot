@@ -1,7 +1,7 @@
 language: minimal
 os: osx
 before_install:
-    - spctl --master-disable
+    - sudo spctl --master-disable # So that VirtualBox can be installed without failing
 script:
     - make -B ~
     - make -B ~ # test that running it twice won't break anything
