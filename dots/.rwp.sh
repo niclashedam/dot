@@ -4,6 +4,7 @@ import calendar
 import imghdr
 import json
 import os
+import platform
 import requests
 import shutil
 import subprocess
@@ -17,9 +18,12 @@ subreddit = "wallpaper"
 extensions = ["jpg", "jpeg", "png"]
 
 def set_desktop_background(filename):
-    os.system("osascript -e 'tell application \"System Events\" to tell every desktop to set picture to \"" + filename + "\"'")
-    os.system("osascript -e 'tell application \"Finder\" to set desktop picture to POSIX file \"" + filename + "\"'")
-    os.system("killall -9 Dock")
+    if platform.system() == 'Darwin':
+        os.system("osascript -e 'tell application \"System Events\" to tell every desktop to set picture to \"" + filename + "\"'")
+        os.system("osascript -e 'tell application \"Finder\" to set desktop picture to POSIX file \"" + filename + "\"'")
+        os.system("killall -9 Dock")
+    else:
+        os.system("gsettings set org.gnome.desktop.background picture-uri file:///" + filename)
 
 def getsizes(uri):
     # get file size *and* image size (None if not known)
