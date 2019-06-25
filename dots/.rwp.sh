@@ -8,7 +8,7 @@ import platform
 import requests
 import shutil
 import subprocess
-import subprocess
+import sys
 import time
 import urllib
 import urlparse
@@ -16,6 +16,9 @@ import urlparse
 wallpaper_path = "/tmp/wp-" + str(calendar.timegm(time.gmtime()))
 subreddit = "wallpaper"
 extensions = ["jpg", "jpeg", "png"]
+
+if len(sys.argv) > 1:
+    subreddit = sys.argv[1]
 
 def set_desktop_background(filename):
     if platform.system() == 'Darwin':
@@ -67,7 +70,7 @@ for post in posts:
         print " --> Skipping due to resolution being", width, height
         continue
 
-    if aspect != 1.78:
+    if aspect < 1.6:
         print " --> Skipping due to aspect being", aspect
         continue
 
