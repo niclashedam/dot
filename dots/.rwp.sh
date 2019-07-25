@@ -15,10 +15,13 @@ import urlparse
 
 wallpaper_path = "/tmp/wp-" + str(calendar.timegm(time.gmtime()))
 subreddit = "wallpaper"
+timeframe = "day"
 extensions = ["jpg", "jpeg", "png"]
 
 if len(sys.argv) > 1:
     subreddit = sys.argv[1]
+if len(sys.argv) > 2:
+    timeframe = sys.argv[2]
 
 def set_desktop_background(filename):
     if platform.system() == 'Darwin':
@@ -46,7 +49,7 @@ def getsizes(uri):
     return size, None
 
 result = requests.get(
-    "https://api.reddit.com/r/" + subreddit + "/top?t=day&limit=50",
+    "https://api.reddit.com/r/" + subreddit + "/top?t=" + timeframe + "&limit=100",
     headers = {
         'User-Agent': 'Not Python',
     }
