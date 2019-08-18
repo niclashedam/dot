@@ -7,3 +7,6 @@ export PATH="$PATH:$HOME/.composer/vendor/bin"
 
 # Yarn (https://yarnpkg.com/)
 export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin"
+
+# fastlane
+export PATH="$HOME/.fastlane/bin:$PATH"
