@@ -6,6 +6,8 @@ ide-typescript
 language-docker
 language-gitignore
 language-latex
+language-swift
+language-vue
 linter-clang
 linter-eslint
 linter-js-yaml
