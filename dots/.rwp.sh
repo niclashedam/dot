@@ -59,9 +59,13 @@ posts = json.loads(result.content)["data"]["children"]
 
 for post in posts:
     url     = post["data"]["url"]
-    width   = post["data"]["preview"]["images"][0]["source"]["width"]
-    height  = post["data"]["preview"]["images"][0]["source"]["height"]
-    aspect  = float("{0:.2f}".format(float(width)/float(height)))
+
+    try:
+        width   = post["data"]["preview"]["images"][0]["source"]["width"]
+        height  = post["data"]["preview"]["images"][0]["source"]["height"]
+        aspect  = float("{0:.2f}".format(float(width)/float(height)))
+    except KeyError:
+        continue
 
     print "Found " + url
 
@@ -103,4 +107,7 @@ for post in posts:
     print " --> Path: " + dotPath
     set_desktop_background(dotPath)
 
-    break
+    exit(0)
+
+print "No potential images found in " + subreddit
+exit(1)
