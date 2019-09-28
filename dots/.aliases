@@ -40,3 +40,6 @@ if type thefuck &> /dev/null; then
   # load fuck
   eval $(thefuck --alias)
 fi
+
+alias docker-start='docker-machine start; eval $(docker-machine env)'
+alias docker-stop='docker-machine stop'
