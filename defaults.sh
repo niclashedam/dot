@@ -37,6 +37,10 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 # Disable smart quotes as they’re annoying when typing code
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 
+# Do not keep windows when quitting a program
+defaults write com.apple.Preview NSQuitAlwaysKeepsWindows -bool false
+defaults write com.apple.QuickTimePlayerX NSQuitAlwaysKeepsWindows -bool false
+
 ###############################################################################
 # Networking & Communications                                                 #
 ###############################################################################
