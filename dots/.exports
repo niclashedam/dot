@@ -13,3 +13,6 @@ export PATH="$HOME/.fastlane/bin:$PATH"
 
 # smlnj
 export PATH=$(brew --prefix)/smlnj/bin:"$PATH"
+
+# mono
+export PATH=/Library/Frameworks/Mono.framework/Versions/Current/bin/:"$PATH"
