@@ -10,3 +10,6 @@ export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin"
 
 # fastlane
 export PATH="$HOME/.fastlane/bin:$PATH"
+
+# smlnj
+export PATH=$(brew --prefix)/smlnj/bin:"$PATH"
