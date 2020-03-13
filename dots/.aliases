@@ -33,7 +33,7 @@ alias reload="exec $SHELL -l"
 # Get a UNIX timestamp
 alias timestamp="date +%s"
 
-#Reddit wallpaper
+# Reddit wallpaper
 alias rwp="~/.rwp.sh"
 
 if type thefuck &> /dev/null; then
@@ -41,5 +41,9 @@ if type thefuck &> /dev/null; then
   eval $(thefuck --alias)
 fi
 
+# docker helpers 
 alias docker-start='docker-machine start; eval $(docker-machine env)'
 alias docker-stop='docker-machine stop'
+
+# what a hack ..
+alias python=/usr/local/bin/python3 
