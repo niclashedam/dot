@@ -44,6 +44,3 @@ fi
 # docker helpers 
 alias docker-start='docker-machine start; eval $(docker-machine env)'
 alias docker-stop='docker-machine stop'
-
-# what a hack ..
-alias python=/usr/local/bin/python3 
