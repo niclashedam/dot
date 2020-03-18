@@ -41,6 +41,9 @@ if type thefuck &> /dev/null; then
   eval $(thefuck --alias)
 fi
 
-# docker helpers 
+# Docker helpers
 alias docker-start='docker-machine start; eval $(docker-machine env)'
 alias docker-stop='docker-machine stop'
+
+# Maintenance
+alias maintenance='~/.maintenance.sh'

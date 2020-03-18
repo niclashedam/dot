@@ -27,4 +27,7 @@ default: ~
 	mkdir -p $(dir $@)
 	cp ${PWD}/$< $@
 
-~: /usr/local/bin/brew ${dotfiles} ${atom_files}
+~/Library/Preferences/com.googlecode.iterm2.plist:
+	./iTerm2/configure.sh
+
+~: ${dotfiles} ${atom_files} ~/Library/Preferences/com.googlecode.iterm2.plist

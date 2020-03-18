@@ -1,6 +1,6 @@
 # Report terminal type
 export TERM="xterm-256color"
-export EDITOR="nano"
+export EDITOR="vim"
 
 # Composer (https://github.com/composer/composer)
 export PATH="$PATH:$HOME/.composer/vendor/bin"
@@ -8,11 +8,8 @@ export PATH="$PATH:$HOME/.composer/vendor/bin"
 # Yarn (https://yarnpkg.com/)
 export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin"
 
-# fastlane
-export PATH="$HOME/.fastlane/bin:$PATH"
-
-# smlnj
-export PATH=$(brew --prefix)/smlnj/bin:"$PATH"
-
 # mono
-export PATH=$PATH:/Library/Frameworks/Mono.framework/Versions/Current/bin/
+export PATH="$PATH:/Library/Frameworks/Mono.framework/Versions/Current/bin/"
+
+# pip
+export PATH="$PATH:$(python -m site --user-base)/bin/"

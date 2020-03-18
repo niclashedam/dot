@@ -14,7 +14,7 @@
 
 [core]
   # Set default editor (for commit and merge messages)
-  editor = atom --wait
+  editor = vim
 
   # Set global ignore file
   excludesfile = ~/.gitignore
