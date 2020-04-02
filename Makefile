@@ -28,6 +28,6 @@ default: ~
 	cp ${PWD}/$< $@
 
 ~/Library/Preferences/com.googlecode.iterm2.plist:
-	./iTerm2/configure.sh
+	./iTerm2/configure.sh || echo "iTerm configuration may fail, as it will not work on all platforms."
 
 ~: ${dotfiles} ${atom_files} ~/Library/Preferences/com.googlecode.iterm2.plist
