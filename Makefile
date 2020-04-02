@@ -11,6 +11,7 @@ default: ~
 
 /usr/local/bin/brew:
 	curl -fsSL ${BREW_URL} | ruby
+	brew update
 
 /usr/local/bin/rwp:
 	cp ./rwp $@
