@@ -163,12 +163,13 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 # Dock and Dashboard                                                          #
 ###############################################################################
 
+defaults delete com.apple.dock
+
 # Show indicator lights for open applications in the Dock
 defaults write com.apple.dock show-process-indicators -bool true
 
 # Wipe all app icons from the Dock
-defaults write com.apple.dock persistent-apps -bool false
-defaults write com.apple.dock persistent-others -bool false
+defaults write com.apple.dock static-only -bool true
 
 # Do not show recents
 defaults write com.apple.dock show-recents -bool false
