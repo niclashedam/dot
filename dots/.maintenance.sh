@@ -3,7 +3,7 @@
 set -e
 
 # Update the dots
-cd ~/dots
+cd ~/dot
 git stash
 git pull
 git stash pop
