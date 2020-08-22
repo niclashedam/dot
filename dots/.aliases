@@ -34,7 +34,7 @@ alias reload="exec $SHELL -l"
 alias timestamp="date +%s"
 
 # Reddit wallpaper
-alias rwp="~/.rwp.sh"
+alias rwp="~/.rwp.py"
 
 if type thefuck &> /dev/null; then
   # load fuck
