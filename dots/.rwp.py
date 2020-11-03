@@ -11,7 +11,7 @@ import subprocess
 import sys
 import time
 import urllib
-import urlparse
+from urllib.parse import urlparse
 
 wallpaper_path = "/tmp/wp-" + str(calendar.timegm(time.gmtime()))
 subreddit = "wallpaper"
@@ -82,7 +82,7 @@ for post in posts:
         continue
 
 
-    path = urlparse.urlparse(url).path
+    path = urlparse(url).path
     ext = (os.path.splitext(path)[1]).replace(".", "").lower()
 
     try:
@@ -91,7 +91,7 @@ for post in posts:
         print (" --> Skipping due to invalid format being", ext)
         continue
 
-    urllib.urlretrieve(post["data"]["url"], wallpaper_path + ext)
+    urllib.request.urlretrieve(post["data"]["url"], wallpaper_path + ext)
 
     image_ext = imghdr.what(wallpaper_path + ext)
     try:
