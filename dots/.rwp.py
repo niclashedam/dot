@@ -67,18 +67,18 @@ for post in posts:
     except KeyError:
         continue
 
-    print "Found " + url
+    print ("Found " + url)
 
     if post["data"]["over_18"] == True:
-        print " --> Skipping due to NSFW"
+        print (" --> Skipping due to NSFW")
         continue
 
     if width < 1920 or height < 1080:
-        print " --> Skipping due to resolution being", width, height
+        print (" --> Skipping due to resolution being", width, height)
         continue
 
     if aspect < 1.6:
-        print " --> Skipping due to aspect being", aspect
+        print (" --> Skipping due to aspect being", aspect)
         continue
 
 
@@ -88,7 +88,7 @@ for post in posts:
     try:
         extensions.index(ext)
     except Exception as e:
-        print " --> Skipping due to invalid format being", ext
+        print (" --> Skipping due to invalid format being", ext)
         continue
 
     urllib.urlretrieve(post["data"]["url"], wallpaper_path + ext)
@@ -97,17 +97,17 @@ for post in posts:
     try:
         extensions.index(image_ext)
     except Exception as e:
-        print " --> Skipping due to invalid image being", image_ext
+        print (" --> Skipping due to invalid image being", image_ext)
         continue
 
-    print " --> OK. Changing wallpaper"
+    print (" --> OK. Changing wallpaper")
 
     dotPath = os.path.expanduser("~/Wallpaper")
     shutil.move(wallpaper_path + ext, dotPath)
-    print " --> Path: " + dotPath
+    print (" --> Path: " + dotPath)
     set_desktop_background(dotPath)
 
     exit(0)
 
-print "No potential images found in " + subreddit
+print ("No potential images found in " + subreddit)
 exit(1)
