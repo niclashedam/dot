@@ -13,9 +13,6 @@ default: ~
 	curl -fsSL ${BREW_URL} | ruby
 	brew update
 
-/usr/local/bin/rwp:
-	cp ./rwp $@
-
 ~/.%: dots/.%
 	mkdir -p $(dir $@)
 	cp ${PWD}/$< $@
@@ -28,7 +25,4 @@ default: ~
 	mkdir -p $(dir $@)
 	cp ${PWD}/$< $@
 
-~/Library/Preferences/com.googlecode.iterm2.plist:
-	./iTerm2/configure.sh || echo "iTerm configuration may fail, as it will not work on all platforms."
-
-~: ${dotfiles} ${atom_files} ~/Library/Preferences/com.googlecode.iterm2.plist
+~: ${dotfiles} ${atom_files}
