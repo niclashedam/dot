@@ -1,15 +1,12 @@
 # Report terminal type
 export TERM="xterm-256color"
-export EDITOR="vim"
+export EDITOR="nano"
 
 # Composer (https://github.com/composer/composer)
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
 # Yarn (https://yarnpkg.com/)
 export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin"
-
-# mono
-export PATH="$PATH:/Library/Frameworks/Mono.framework/Versions/Current/bin/"
 
 # pip
 export PATH="$PATH:$(python3 -m site --user-base)/bin/"
