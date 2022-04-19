@@ -10,3 +10,5 @@ export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin"
 
 # pip
 export PATH="$PATH:$(python3 -m site --user-base)/bin/"
+
+export PATH="/usr/local/sbin:$PATH"
