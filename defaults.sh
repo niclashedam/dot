@@ -131,7 +131,7 @@ defaults write NSGlobalDomain AppleMetricUnits -bool true
 sudo systemsetup -settimezone "Europe/Copenhagen" > /dev/null
 
 # Show seconds in menu bar
-defaults write com.apple.menuextra.clock DateFormat -string "EEE HH:mm:ss"
+defaults write com.apple.menuextra.clock DateFormat -string "EEE d MMM  HH:mm:ss"
 killall SystemUIServer
 
 ###############################################################################
