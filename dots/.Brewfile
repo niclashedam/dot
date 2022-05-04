@@ -1,4 +1,3 @@
-tap "getantibody/tap"
 tap "homebrew/cask"
 tap "homebrew/cask-drivers"
 
