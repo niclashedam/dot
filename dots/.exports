@@ -12,4 +12,5 @@ export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin"
 export PATH="$PATH:$(python3 -m site --user-base)/bin/"
 
 # brew
+eval $(/opt/homebrew/bin/brew shellenv)
 export PATH="/usr/local/sbin:$PATH"
